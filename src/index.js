@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import './index.css';
 import App from './components/App.js';
@@ -12,7 +12,17 @@ import registerServiceWorker from './registerServiceWorker';
 const Root = () => (
   <Router>
     <div>
-      {/*Can put navbar here*/}
+      <header className="navbar">
+      	<section>
+	      	<Link to="/" className="logo"><img src="" alt="Non Zero Days" /></Link>
+	      	<nav>
+	      		<Link to="/about">About</Link>
+	      		<Link to="/login">Login</Link>
+	      	</nav>
+	      	<div className="spacer"></div>
+      	</section>
+      </header>
+
       <Switch>
 	    <Route path="/" exact component={App} />
 		<Route path="/about" component={About} />

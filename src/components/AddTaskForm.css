@@ -1,0 +1,72 @@
+.add-task {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	background-color: white;
+	box-shadow: 0px 15px 30px 2px #ADD8E6;
+
+	margin: 10px;
+}
+
+.add-task-name {
+	box-sizing: border-box; 
+	font-size: 14px;
+	margin: 5px 50px 5px 50px;
+	padding: 10px 10px 10px 20px;
+	width: 90%;
+}
+
+.add-task-description {
+	box-sizing: border-box; 
+	margin: 5px 10px 0px 10px;
+	padding: 10px 10px 10px 20px;
+	resize: none;
+	width: 90%;
+}
+
+.add-task-repeat {
+	margin: 5px;
+}
+
+.add-task-difficulty {
+	margin: 5px 5px 5px 5px;
+}
+
+.add-task-submit {
+	height: 40px;
+	background-color: #3498db;
+	border: none;
+	border-radius: 20px;
+	color: #fff;
+	font-weight: 600;
+	line-height: 200%;
+	margin: 5px 0 12px 0;
+	padding: 0 35px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.add-task-submit:hover {
+	background-color: #1b7fc2;
+	cursor: pointer;
+}
+
+.add-task-submit:focus {
+	outline: none;
+}
+
+.row-wrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+.task-span {
+	align-self: flex-start;
+	position: relative;
+	left: 15px;
+}
+
+.difficulty {
+		position: relative;
+		top: 5px;
+}

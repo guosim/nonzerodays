@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import AddTaskForm from './AddTaskForm.js';
+import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
 
 class App extends React.Component {
@@ -34,7 +35,6 @@ class App extends React.Component {
 	tgLink(task, goal) { //xor between all goal and current goal to display
 		const tasks = {...this.state.tasks};
 		const goals = {...this.state.goals};
-
 		this.setState({tasks: tasks,
 									 goals: goals});
 	}
@@ -43,6 +43,7 @@ class App extends React.Component {
 		return (
 			<div className="nonzerodays">
 				<AddTaskForm addTask={this.addTask} />
+				<AddGoalForm addGoal={this.addGoal} />
 				<ul className="tasks">
 					{
 						Object

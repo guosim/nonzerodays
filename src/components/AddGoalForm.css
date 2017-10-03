@@ -1,0 +1,80 @@
+.add-goal {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	background-color: #fff;
+	box-shadow: 0px 2px 4px 0px #000029;
+	margin: 10px;
+	padding: 12px 12px 12px 12px;
+	border-radius: 5px
+}
+
+.add-goal-name {
+	box-sizing: border-box; 
+	font-size: 14px;
+	margin: 0px 50px 5px 50px;
+	padding: 10px 10px 10px 10px;
+	width: 90%;
+}
+
+.add-goal-description {
+	box-sizing: border-box; 
+	margin: 0px 10px 5px 10px;
+	padding: 10px 10px 10px 10px;
+	resize: none;
+	width: 90%;
+}
+
+.add-goal-submit {
+	height: 40px;
+	background-color: #3498db;
+	border: none;
+	border-radius: 20px;
+	color: #fff;
+	font-weight: 600;
+	line-height: 200%;
+	margin: 5px;
+	padding: 0 35px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.add-goal-submit:hover {
+	background-color: #1b7fc2;
+	cursor: pointer;
+}
+
+.add-goal-submit:focus {
+	outline: none;
+}
+
+.goal-name {
+	align-self: flex-start;
+	position: relative;
+	left: 15px;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 0 0 0;
+}
+
+.goal-description {
+	align-self: flex-start;
+	position: relative;
+	left: 15px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.select-tasks-span {
+	align-self: flex-start;
+	position: relative;
+	left: 15px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.select-tasks {
+	width: 90%;
+}
+.select-tasks > .Select-control {
+	border: 1px solid black;
+}

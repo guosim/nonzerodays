@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactStars from 'react-stars';
-
+import Select from 'react-select';
 import './AddTaskForm.css';
 
 
 class AddTaskForm extends React.Component {
-
 	constructor() {
 	super();
 	this.createTask = this.createTask.bind(this);
@@ -26,11 +25,9 @@ class AddTaskForm extends React.Component {
 		this.props.addTask(task);
 		this.taskForm.reset();
 		this.difficulty.value = 3;
-		console.log(task);
 	}
 
 	newDifficulty(difficulty) {
-		console.log(difficulty);
 		this.difficulty.value = difficulty;
 	}
 

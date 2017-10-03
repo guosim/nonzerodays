@@ -2,24 +2,25 @@
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	background-color: white;
-	box-shadow: 0px 15px 30px 2px #ADD8E6;
-
+	background-color: #fff;
+	box-shadow: 0px 2px 4px 0px #000029;
 	margin: 10px;
+	padding: 12px 12px 12px 12px;
+	border-radius: 5px
 }
 
 .add-task-name {
 	box-sizing: border-box; 
 	font-size: 14px;
-	margin: 5px 50px 5px 50px;
-	padding: 10px 10px 10px 20px;
+	margin: 0px 50px 5px 50px;
+	padding: 10px 10px 10px 10px;
 	width: 90%;
 }
 
 .add-task-description {
 	box-sizing: border-box; 
-	margin: 5px 10px 0px 10px;
-	padding: 10px 10px 10px 20px;
+	margin: 0px 10px 5px 10px;
+	padding: 10px 10px 10px 10px;
 	resize: none;
 	width: 90%;
 }
@@ -29,7 +30,7 @@
 }
 
 .add-task-difficulty {
-	margin: 5px 5px 5px 5px;
+	margin: 5px;
 }
 
 .add-task-submit {
@@ -40,7 +41,7 @@
 	color: #fff;
 	font-weight: 600;
 	line-height: 200%;
-	margin: 5px 0 12px 0;
+	margin: 5px;
 	padding: 0 35px;
 	text-align: center;
 	text-transform: uppercase;
@@ -54,19 +55,37 @@
 	outline: none;
 }
 
-.row-wrapper {
+.add-task-row {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 }
 
-.task-span {
+.task-name {
 	align-self: flex-start;
 	position: relative;
 	left: 15px;
+	font-size: 12px;
+	font-weight: 700;
+	margin: 0 0 0 0;
 }
 
-.difficulty {
-		position: relative;
-		top: 5px;
+.task-description {
+	align-self: flex-start;
+	position: relative;
+	left: 15px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.task-difficulty {
+	position: relative;
+	top: 3px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.task-repeat {
+	font-size: 12px;
+	font-weight: 700;
 }

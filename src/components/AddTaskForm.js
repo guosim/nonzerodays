@@ -17,7 +17,7 @@ class AddTaskForm extends React.Component {
 		const task = {
 				name: this.name.value,
 				description: this.description.value,
-				difficulty: this.difficulty.value,
+				difficulty: this.difficulty.value || 3,
 				repeat: this.repeat.value,
 				complete: "incomplete",
 				streak: 0,
@@ -25,6 +25,7 @@ class AddTaskForm extends React.Component {
 		}
 		this.props.addTask(task);
 		this.taskForm.reset();
+		this.difficulty.value = 3;
 		console.log(task);
 	}
 
@@ -36,23 +37,23 @@ class AddTaskForm extends React.Component {
 	render() { //look at docs for complete/incomplete
 		return (
 			<form ref={(input) => {this.taskForm = input}} className="add-task" onSubmit={(e) => this.createTask(e)}>
-				<span className="task-span">Task Name: </span>
+				<span className="task-name">Task Name: </span>
 				<input ref={(input) => {this.name = input}} className="add-task-name" type="text" placeholder="Add a task.." required />
-				<span className="task-span">Task Description: </span>
+				<span className="task-description">Task Description: </span>
 				<textarea ref={(input) => {this.description = input}} className="add-task-description" placeholder="Additional details" />
-				<div className="row-wrapper">
-					<span className="difficulty">Difficulty: </span>
+				<div className="add-task-row">
+					<span className="task-difficulty">Difficulty: </span>
 					<ReactStars
 						ref={(input) => {this.difficulty = input}}
 						count={5}
 						value={3}
-						size={30}
+						size={24}
 						half={false}
 						color2={'#ffd700'} 
 						onChange={(e) => this.newDifficulty(e)} />
 				</div>
-				<div className="row-wrapper">
-					<span>Repeat: </span>
+				<div className="add-task-row">
+					<span className="task-repeat"><i className="fa fa-repeat"></i> Repeat: </span>
 					<select ref={(input) => {this.repeat = input}} className="add-task-repeat">
 						<option value="repeat-daily">
 							Daily
@@ -72,11 +73,3 @@ class AddTaskForm extends React.Component {
 }
 
 export default AddTaskForm;
-
-
-/*
-Name, Description/Details,
- Repeat (Daily, Weekly, Monthly, Time of Day, Mon/Tues),
-	Difficulty, Stars (default=3), Time created, 
-Goals?
-*/

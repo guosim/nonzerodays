@@ -11,27 +11,28 @@ import NoMatch from './components/NoMatch.js';
 import registerServiceWorker from './registerServiceWorker';
 
 const Root = () => (
-  <Router>
-    <div>
-      <header className="navbar">
-      	<section>
-	      	<Link to="/" className="logo"><img src="" alt="Non Zero Days" /></Link>
-	      	<nav>
-	      		<Link to="/about">About</Link>
-	      		<Link to="/login">Login</Link>
-	      	</nav>
-	      	<div className="spacer"></div>
-      	</section>
-      </header>
+	<Router>
+		<div>
+			<header className="navbar">
+				<section>
+					<Link to="/" className="logo"><img src="" alt="Non Zero Days" /></Link>
+					<nav>
+						<Link to="/">Home</Link>
+						<Link to="/about">About</Link>
+						<Link to="/login">Login</Link>
+					</nav>
+					<div className="spacer"></div>
+				</section>
+			</header>
 
-      <Switch>
-	    <Route path="/" exact component={App} />
-		<Route path="/about" component={About} />
-	    <Route path="/login" component={Login} />
-	    <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>
+			<Switch>
+				<Route path="/" exact component={App} />
+				<Route path="/about" component={About} />
+				<Route path="/login" component={Login} />
+				<Route component={NoMatch} />
+			</Switch>
+		</div>
+	</Router>
 )
 
 render(<Root />, document.getElementById('root'));

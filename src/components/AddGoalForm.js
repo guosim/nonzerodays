@@ -20,7 +20,7 @@ class AddGoalForm extends React.Component {
 		}
 		this.props.addGoal(goal);
 		this.goalForm.reset();
-		this.setState({tasks:''})
+		this.setState({tasks: ''});
 	}
 
 	handleSelectChange(tasks) {
@@ -35,13 +35,13 @@ class AddGoalForm extends React.Component {
 		];
 		return (
 			<form ref={(input) => {this.goalForm = input}} className="add-goal" onSubmit={(e) => this.createGoal(e)}>
-				<span className="goal-name">Goal Name: </span>
-				<input ref={(input) => {this.name = input}} className="add-goal-name" type="text" placeholder="Dream big!" />
-				<span className="goal-description">Goal Description: </span>
+				<span className="goal-name-span">Goal Name *</span>
+				<input ref={(input) => {this.name = input}} className="add-goal-name" type="text" required placeholder="Dream big!" />
+				<span className="goal-description-span">Goal Description </span>
 				<textarea ref={(input) => {this.description = input}} className="add-goal-description" placeholder="Additional details" />
-				<span className="select-tasks-span">Tasks: </span>
+				<span className="select-tasks-span">Tasks </span>
 				<Select
-					className="select-tasks"
+					className="add-goal-tasks"
 					value={this.state.tasks}
 					closeOnSelect={false}
 					options={options}

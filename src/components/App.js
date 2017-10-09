@@ -42,8 +42,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="nonzerodays">
-				<AddTaskForm addTask={this.addTask} />
-				<AddGoalForm addGoal={this.addGoal} />
+				<AddTaskForm addTask={this.addTask} goals={this.state.goals} />
+				<AddGoalForm addGoal={this.addGoal} tasks={this.state.tasks} />
 				<ul className="tasks">
 					{
 						Object

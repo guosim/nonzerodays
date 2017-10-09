@@ -9,6 +9,9 @@ class AddTaskForm extends React.Component {
 	super();
 	this.createTask = this.createTask.bind(this);
 	this.newDifficulty = this.newDifficulty.bind(this);
+	this.selectChangeGoals = this.selectChangeGoals.bind(this);
+	this.selectChangeRepeat = this.selectChangeRepeat.bind(this);
+	this.state = {goals:'', repeat:''};
 	}
 
 	createTask(event) {
@@ -17,29 +20,79 @@ class AddTaskForm extends React.Component {
 				name: this.name.value,
 				description: this.description.value,
 				difficulty: this.difficulty.value || 3,
-				repeat: this.repeat.value,
+				inGoals: this.state.goals,
+				repeat: this.state.repeat,
 				complete: "incomplete",
-				streak: 0,
-				inGoals: {}
+				streak: 0
+
 		}
 		this.props.addTask(task);
 		this.taskForm.reset();
 		this.difficulty.value = 3;
+		this.setState({goals:'', repeat:''});
+	}
+
+	selectChangeGoals(goals) {
+		this.setState({ goals });
+	}
+
+	selectChangeRepeat(repeat) {
+		this.setState({ repeat });
 	}
 
 	newDifficulty(difficulty) {
 		this.difficulty.value = difficulty;
 	}
 
-	render() { //look at docs for complete/incomplete
+	render() {
+		const goalOptions = [
+			{ value: 'one', label: 'One' },
+			{ value: 'two', label: 'Two' },
+			{ value: 'three', label: 'Three' }
+		];
+
+		const repeatOptions = [
+			{ value: 'monday,tuesday,wednesday,thursday,friday,saturday,sunday', label: 'Daily' },
+			{ value: 'monday', label: 'Monday' },
+			{ value: 'tuesday', label: 'Tuesday' },
+			{ value: 'wednesday', label: 'Wednesday' },
+			{ value: 'thursday', label: 'Thursday' },
+			{ value: 'friday', label: 'Friday' },
+			{ value: 'saturday', label: 'Saturday' },
+			{ value: 'sunday', label: 'Sunday' }
+		];
 		return (
 			<form ref={(input) => {this.taskForm = input}} className="add-task" onSubmit={(e) => this.createTask(e)}>
-				<span className="task-name">Task Name: </span>
+				<span className="task-name-span">Task Name *</span>
 				<input ref={(input) => {this.name = input}} className="add-task-name" type="text" placeholder="Add a task.." required />
-				<span className="task-description">Task Description: </span>
+				<span className="task-description-span">Task Description </span>
 				<textarea ref={(input) => {this.description = input}} className="add-task-description" placeholder="Additional details" />
+				<span className="select-goals-span">Goals </span>
+				<Select
+					className="add-task-goals"
+					value={this.state.goals}
+					closeOnSelect={true}
+					options={ 
+						Object
+							.keys(this.props.goals)
+							.map(x => ( {value:x, label:this.props.goals[x].name} ))
+					} 
+					onChange={this.selectChangeGoals}
+					multi
+				/>
+				<span className="task-repeat-span">Repeat <i className="fa fa-repeat"></i></span>
+				<Select 
+					className="add-task-repeat"
+					value={ this.state.repeat }
+					closeOnSelect={true}
+					options={repeatOptions}
+					onChange={this.selectChangeRepeat}
+					multi
+					simpleValue
+					/>
+
 				<div className="add-task-row">
-					<span className="task-difficulty">Difficulty: </span>
+					<span className="task-difficulty-span">Difficulty: </span>
 					<ReactStars
 						ref={(input) => {this.difficulty = input}}
 						count={5}
@@ -49,20 +102,7 @@ class AddTaskForm extends React.Component {
 						color2={'#ffd700'} 
 						onChange={(e) => this.newDifficulty(e)} />
 				</div>
-				<div className="add-task-row">
-					<span className="task-repeat"><i className="fa fa-repeat"></i> Repeat: </span>
-					<select ref={(input) => {this.repeat = input}} className="add-task-repeat">
-						<option value="repeat-daily">
-							Daily
-						</option>
-						<option value="repeat-weekly">
-							Weekly
-						</option>
-						<option value="repeat-monthly">
-							Monthly
-						</option>
-					</select>
-				</div>
+
 				<button type="submit" className="add-task-submit">Add Task</button>
 			</form>
 		)

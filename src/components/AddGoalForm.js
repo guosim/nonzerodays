@@ -10,13 +10,13 @@ class AddGoalForm extends React.Component {
 		this.state = {tasks: ''};
 	}
 
-	createGoal(event) {
+	createGoal(event) { //add this goal to tasks 
 		event.preventDefault();
 		const goal = {
 			name: this.name.value,
 			description: this.description.value,
 			stars: 0,
-			hasTasks: this.state.tasks
+			hasTasks: this.state.tasks || []
 		}
 		this.props.addGoal(goal);
 		this.goalForm.reset();
@@ -28,11 +28,6 @@ class AddGoalForm extends React.Component {
 	}
 
 	render() {
-		const options = [
-			{ value: 'one', label: 'One' },
-			{ value: 'two', label: 'Two' },
-			{ value: 'three', label: 'Three' }
-		];
 		return (
 			<form ref={(input) => {this.goalForm = input}} className="add-goal" onSubmit={(e) => this.createGoal(e)}>
 				<span className="goal-name-span">Goal Name *</span>
@@ -44,7 +39,11 @@ class AddGoalForm extends React.Component {
 					className="add-goal-tasks"
 					value={this.state.tasks}
 					closeOnSelect={false}
-					options={options}
+					options={
+						Object
+							.keys(this.props.tasks)
+							.map(x => ( {value:x, label:this.props.tasks[x].name} ))
+					}
 					onChange={this.handleSelectChange}
 					multi
 					placeholder="Achieve your goal!"
@@ -55,11 +54,6 @@ class AddGoalForm extends React.Component {
 	}
 }
 
+
 export default AddGoalForm;
-
-
-/*
-Name, Description/Details,
-	Difficulty, Time created, time finished?
-Goals?
-*/
+//time created - add to history?

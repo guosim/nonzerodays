@@ -14,17 +14,16 @@ class AddTaskForm extends React.Component {
 	this.state = {goals:'', repeat:''};
 	}
 
-	createTask(event) {
+	createTask(event) { //add this task to goal
 		event.preventDefault();
 		const task = {
 				name: this.name.value,
 				description: this.description.value,
 				difficulty: this.difficulty.value || 3,
-				inGoals: this.state.goals,
+				inGoals: this.state.goals || [],
 				repeat: this.state.repeat,
 				complete: "incomplete",
 				streak: 0
-
 		}
 		this.props.addTask(task);
 		this.taskForm.reset();
@@ -45,12 +44,6 @@ class AddTaskForm extends React.Component {
 	}
 
 	render() {
-		const goalOptions = [
-			{ value: 'one', label: 'One' },
-			{ value: 'two', label: 'Two' },
-			{ value: 'three', label: 'Three' }
-		];
-
 		const repeatOptions = [
 			{ value: 'monday,tuesday,wednesday,thursday,friday,saturday,sunday', label: 'Daily' },
 			{ value: 'monday', label: 'Monday' },

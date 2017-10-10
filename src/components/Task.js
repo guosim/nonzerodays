@@ -9,7 +9,7 @@ class Task extends React.Component {
 	render() {
 		const { details } = this.props;
 		const complete = details.complete === "complete";
-		const buttonText = complete ? 'Done' : 'Unfinished';
+		const buttonText = complete ? 'Done!' : 'Incomplete';
 
 		return (
 			<li className="task">
@@ -29,7 +29,7 @@ class Task extends React.Component {
 				<p className="taskDescription">
 					{details.description}
 				</p>
-
+				<button disabled={!complete}>{buttonText}</button>
 			</li>
 		)
 	}

@@ -20,17 +20,26 @@ class App extends React.Component {
 
 	addTask(task) {
 		const tasks = {...this.state.tasks};
+		const goals = {...this.state.goals};
 		const timestamp = Date.now();
 		tasks[`task${timestamp}`] = task;
-		this.setState({tasks});
+		const goalNames = tasks[`task${timestamp}`].inGoals.map(key => (key.value)) // goalNames = strings of goal name
+		goalNames.map(key => (goals[key].hasTasks.push(task)))  //WORKS but one has label value other has whole task
+		this.setState({tasks: tasks,
+									 goals: goals});
 	}
 
 	addGoal(goal) {
+		const tasks = {...this.state.tasks};
 		const goals = {...this.state.goals};
 		const timestamp = Date.now();
 		goals[`goal${timestamp}`] = goal;
-		this.setState({goals});
+		const taskNames = goals[`goal${timestamp}`].hasTasks.map(key => (key.value))
+		taskNames.map(key => (tasks[key].inGoals.push(goal)))
+		this.setState({tasks: tasks,
+									 goals: goals});
 	}
+
 //complete, edit, delete, add everything to history after
 	tgLink(task, goal) { //xor between all goal and current goal to display
 		const tasks = {...this.state.tasks};

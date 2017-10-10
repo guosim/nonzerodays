@@ -10,6 +10,7 @@ class App extends React.Component {
 		this.addTask = this.addTask.bind(this);
 		this.addGoal = this.addGoal.bind(this);
 		this.tgLink = this.tgLink.bind(this);
+		this.completeTask = this.completeTask.bind(this);
 
 		this.state = {
 			tasks: {},
@@ -48,6 +49,12 @@ class App extends React.Component {
 									 goals: goals});
 	}
 
+	completeTask(key) {
+		const tasks = {...this.state.tasks};
+		tasks[key].complete = "complete";
+		this.setState({ tasks });
+	}
+
 	render() {
 		return (
 			<div className="nonzerodays">
@@ -57,7 +64,7 @@ class App extends React.Component {
 					{
 						Object
 							.keys(this.state.tasks)
-							.map(key => <Task key={key} details={this.state.tasks[key]}/>)
+							.map(key => <Task key={key} index={key} details={this.state.tasks[key]} completeTask={this.completeTask} />)
 					}
 				</ul>
 			</div>

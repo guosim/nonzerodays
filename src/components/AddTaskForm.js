@@ -20,7 +20,7 @@ class AddTaskForm extends React.Component {
 				name: this.name.value,
 				description: this.description.value,
 				difficulty: this.difficulty.value || 3,
-				inGoals: this.state.goals || [],
+				inGoals: this.state.goals || [], //want whole goal not just label! fix later
 				repeat: this.state.repeat,
 				complete: "incomplete",
 				streak: 0

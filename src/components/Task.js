@@ -7,7 +7,7 @@ import './Task.css';
 
 class Task extends React.Component {
 	render() {
-		const { details } = this.props;
+		const { details, index } = this.props;
 		const complete = details.complete === "complete";
 		const buttonText = complete ? 'Done!' : 'Incomplete';
 
@@ -29,7 +29,7 @@ class Task extends React.Component {
 				<p className="taskDescription">
 					{details.description}
 				</p>
-				<button disabled={!complete}>{buttonText}</button>
+				<button onClick={() => this.props.completeTask(index)} disabled={complete}>{buttonText}</button>
 			</li>
 		)
 	}

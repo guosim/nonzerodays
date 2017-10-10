@@ -6,21 +6,26 @@ import './AddTaskForm.css';
 
 class AddTaskForm extends React.Component {
 	constructor() {
-	super();
-	this.createTask = this.createTask.bind(this);
-	this.newDifficulty = this.newDifficulty.bind(this);
-	this.selectChangeGoals = this.selectChangeGoals.bind(this);
-	this.selectChangeRepeat = this.selectChangeRepeat.bind(this);
-	this.state = {goals:'', repeat:''};
+		super();
+		this.createTask = this.createTask.bind(this);
+		this.newDifficulty = this.newDifficulty.bind(this);
+		this.selectChangeGoals = this.selectChangeGoals.bind(this);
+		this.selectChangeRepeat = this.selectChangeRepeat.bind(this);
+		this.state = {goals:'', repeat:''};
 	}
 
-	createTask(event) { //add this task to goal
+
+	createTask(event) {
 		event.preventDefault();
+		const goalsFromSelect = this.state.goals || []
+		const goalIds = goalsFromSelect.map(key => key.value)
+		const inGoals = []
+		goalIds.map(key => (inGoals.push(this.props.goals[key]) ))
 		const task = {
 				name: this.name.value,
 				description: this.description.value,
 				difficulty: this.difficulty.value || 3,
-				inGoals: this.state.goals || [], //want whole goal not just label! fix later
+				inGoals: inGoals,
 				repeat: this.state.repeat,
 				complete: "incomplete",
 				streak: 0

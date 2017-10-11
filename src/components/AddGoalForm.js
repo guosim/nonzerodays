@@ -10,7 +10,7 @@ class AddGoalForm extends React.Component {
 		this.state = {tasks: ''};
 	}
 
-	createGoal(event) { //add this goal to tasks 
+	createGoal(event) {
 		event.preventDefault();
 		const goal = {
 			name: this.name.value,

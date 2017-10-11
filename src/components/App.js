@@ -24,8 +24,8 @@ class App extends React.Component {
 		const goals = {...this.state.goals};
 		const timestamp = Date.now();
 		tasks[`task${timestamp}`] = task;
-		const goalNames = tasks[`task${timestamp}`].inGoals.map(key => (key.value)) // goalNames = strings of goal name
-		goalNames.map(key => (goals[key].hasTasks.push(task)))  //WORKS but one has label value other has whole task
+		const goalNames = tasks[`task${timestamp}`].inGoals.map(key => (key.value)) 
+		goalNames.map(key => (goals[key].hasTasks.push({value:`task${timestamp}`, label:task.name})))
 		this.setState({tasks: tasks,
 									 goals: goals});
 	}
@@ -36,13 +36,12 @@ class App extends React.Component {
 		const timestamp = Date.now();
 		goals[`goal${timestamp}`] = goal;
 		const taskNames = goals[`goal${timestamp}`].hasTasks.map(key => (key.value))
-		taskNames.map(key => (tasks[key].inGoals.push(goal)))
+		taskNames.map(key => (tasks[key].inGoals.push({value:`goal${timestamp}`, label:goal.name})))
 		this.setState({tasks: tasks,
 									 goals: goals});
 	}
 
-//complete, edit, delete, add everything to history after
-	tgLink(task, goal) { //xor between all goal and current goal to display
+	tgLink(task, goal) {
 		const tasks = {...this.state.tasks};
 		const goals = {...this.state.goals};
 		this.setState({tasks: tasks,

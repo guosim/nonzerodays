@@ -12,15 +12,11 @@ class AddGoalForm extends React.Component {
 
 	createGoal(event) { //add this goal to tasks 
 		event.preventDefault();
-		const tasksFromSelect = this.state.tasks || []
-		const taskIds = tasksFromSelect.map(key => key.value)
-		const hasTasks = []
-		taskIds.map(key => (hasTasks.push(this.props.tasks[key])))
 		const goal = {
 			name: this.name.value,
 			description: this.description.value,
 			stars: 0,
-			hasTasks: hasTasks
+			hasTasks: this.state.tasks || []
 		}
 		this.props.addGoal(goal);
 		this.goalForm.reset();

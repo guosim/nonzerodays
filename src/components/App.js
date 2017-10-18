@@ -4,7 +4,7 @@ import AddTaskForm from './AddTaskForm.js';
 import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
 import Goal from './Goal.js';
-import base from '../base.js';
+import firebase from '../firebase.js';
 
 class App extends React.Component {
 	constructor() {

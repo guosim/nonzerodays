@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactStars from 'react-stars';
 import './Task.css';
 
@@ -33,6 +34,12 @@ class Task extends React.Component {
 			</li>
 		)
 	}
+}
+
+Task.propTypes = {
+	index: PropTypes.string.isRequired,
+	details: PropTypes.object.isRequired,
+	completeTask: PropTypes.func.isRequired
 }
 
 export default Task;

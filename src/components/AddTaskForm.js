@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactStars from 'react-stars';
 import Select from 'react-select';
 import './AddTaskForm.css';
@@ -100,6 +101,11 @@ class AddTaskForm extends React.Component {
 			</form>
 		)
 	}
+}
+
+AddTaskForm.propTypes = {
+	addTask: PropTypes.func.isRequired,
+	goals: PropTypes.object.isRequired
 }
 
 export default AddTaskForm;

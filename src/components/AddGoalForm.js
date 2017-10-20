@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import './AddGoalForm.css';
 
@@ -54,6 +55,10 @@ class AddGoalForm extends React.Component {
 	}
 }
 
+AddGoalForm.propTypes = {
+	addGoal: PropTypes.func.isRequired,
+	tasks: PropTypes.object.isRequired
+}
 
 export default AddGoalForm;
 //time created - add to history?

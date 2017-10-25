@@ -57,7 +57,7 @@ class AddTaskForm extends React.Component {
 		];
 		return (
 			<form ref={(input) => {this.taskForm = input}} className="add-task" onSubmit={(e) => this.createTask(e)}>
-				<span className="task-name-span">Task Name *</span>
+				<span className="task-name-span">Task Name</span>
 				<input ref={(input) => {this.name = input}} className="add-task-name" type="text" placeholder="Add a task.." required />
 				<span className="task-description-span">Task Description </span>
 				<textarea ref={(input) => {this.description = input}} className="add-task-description" placeholder="Additional details" />

@@ -4,7 +4,7 @@ import AddTaskForm from './AddTaskForm.js';
 import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
 import Goal from './Goal.js';
-import database from '../firebase.js';
+import { database } from '../firebase.js';
 
 class App extends React.Component {
 	constructor() {
@@ -19,10 +19,6 @@ class App extends React.Component {
 			goals: {},
 			timeline: {}
 		};
-	}
-
-	componentWillMount() {
-
 	}
 
 	addTask(task) {

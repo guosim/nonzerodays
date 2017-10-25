@@ -31,7 +31,7 @@ class AddGoalForm extends React.Component {
 	render() {
 		return (
 			<form ref={(input) => {this.goalForm = input}} className="add-goal" onSubmit={(e) => this.createGoal(e)}>
-				<span className="goal-name-span">Goal Name *</span>
+				<span className="goal-name-span">Goal Name</span>
 				<input ref={(input) => {this.name = input}} className="add-goal-name" type="text" required placeholder="Dream big!" />
 				<span className="goal-description-span">Goal Description </span>
 				<textarea ref={(input) => {this.description = input}} className="add-goal-description" placeholder="Additional details" />

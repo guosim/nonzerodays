@@ -22,22 +22,12 @@
 	max-width: 50%;
 }
 
-.loginsignup-username {
+.loginsignup-field {
 	border: 1px solid #a9a9a9;
 	border-radius: 4px;
 	box-sizing: border-box; 
 	font-size: 14px;
-	margin: 0px 50px 5px 50px;
-	padding: 10px 10px 10px 10px;
-	width: 90%;
-}
-
-.loginsignup-password {
-	border: 1px solid #a9a9a9;
-	border-radius: 4px;
-	box-sizing: border-box; 
-	font-size: 14px;
-	margin: 0px 50px 5px 50px;
+	margin: 5px 50px 5px 50px;
 	padding: 10px 10px 10px 10px;
 	width: 90%;
 }
@@ -55,6 +45,7 @@
 	text-align: center;
 	text-transform: uppercase;
 }
+
 .loginsignup-submit:hover {
 	background-color: #1b7fc2;
 	cursor: pointer;
@@ -68,11 +59,20 @@
 	font-weight: 700;
 }
 
-.password-span{
+.password-span {
 	align-self: flex-start;
 	position: relative;
 	left: 15px;
 	font-size: 14px;
 	font-weight: 700;
+}
 
+.loginsignup-link {
+	color: black;
+	margin: 20px 10px 10px 10px;
+}
+
+.errorMessage {
+	color: red;
+	text-decoration: bold;
 }

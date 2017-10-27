@@ -22,7 +22,7 @@ class Signup extends React.Component {
 			<div className="loginsignup-flex">
 				<form ref={(input) => {this.signupForm = input}} className="loginsignup" onSubmit={(e) => this.makeUser(e)}>
 					<h3 className="loginsignup-header">Create A New Account</h3>
-					<p className="errorMessage">{this.msg}</p> 
+					<p className="errorMessage"></p> 
 					<input ref={(input) => {this.username = input}} className="loginsignup-field" type="text" placeholder="username" required autoFocus={true} />
 					<input ref={(input) => {this.password = input}} className="loginsignup-field" type="password" placeholder="password" required />
 					<input ref={(input) => {this.verify = input}} className="loginsignup-field" type="password" placeholder="verify password" required />

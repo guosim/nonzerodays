@@ -4,7 +4,7 @@ import AddTaskForm from './AddTaskForm.js';
 import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
 import Goal from './Goal.js';
-import { database } from '../firebase.js';
+import base, { currentUser } from '../firebase.js';
 
 class App extends React.Component {
 	constructor() {
@@ -13,12 +13,34 @@ class App extends React.Component {
 		this.addGoal = this.addGoal.bind(this);
 		this.tgLink = this.tgLink.bind(this);
 		this.completeTask = this.completeTask.bind(this);
+		this.setUser = this.setUser.bind(this);
 
 		this.state = {
+			user: {},
 			tasks: {},
-			goals: {},
-			timeline: {}
+			goals: {}
 		};
+	}
+
+	componentWillMount() {
+		const user = currentUser();
+		this.setState({user: user})
+		var uid;
+		if (user != null) {
+			uid = user.uid;
+		}
+		if (uid) {
+			this.goalRef = base.syncState(`/users/${uid}/goals` ,
+				{
+					context: this,	
+					state: 'goals'
+				});
+			this.taskRef = base.syncState(`/users/${uid}/tasks` ,
+				{
+					context: this,	
+					state: 'tasks'
+				});
+			}
 	}
 
 	addTask(task) {
@@ -54,6 +76,10 @@ class App extends React.Component {
 		const tasks = {...this.state.tasks};
 		tasks[key].complete = "complete";
 		this.setState({ tasks });
+	}
+
+	setUser() {
+
 	}
 
 	render() {

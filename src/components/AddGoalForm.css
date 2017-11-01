@@ -8,6 +8,7 @@
 	padding: 12px 12px 12px 12px;
 	border-radius: 4px;
 	width: 300px;
+	min-height: 252px;
 }
 
 .add-goal-name {

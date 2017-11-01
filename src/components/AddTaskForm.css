@@ -8,8 +8,8 @@
 	box-shadow: 0px 2px 4px 0px #000029;
 	margin: 10px;
 	padding: 12px 12px 12px 12px;
-
 	width: 300px;
+	min-height: 328px;
 }
 
 .add-task-name {

@@ -1,0 +1,31 @@
+.navbar {
+	background-color: #005a8f;
+	display: flex;
+	flex-wrap: row wrap;
+	justify-content: center;
+	width: 100%;
+	min-height: 60px;
+}
+
+.navbar > ul {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 40px 0 40px;
+	width: 80%;
+	list-style: none;
+}
+
+.navbar > ul > li > a {
+
+	text-decoration: none;
+	color: white;
+	margin: 0px 10px 0px 10px;
+}
+
+.logo {
+	margin-right: auto;
+	font-weight: 600;
+	line-height: 1.6em;
+}

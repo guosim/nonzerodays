@@ -4,6 +4,7 @@ import AddTaskForm from './AddTaskForm.js';
 import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
 import Goal from './Goal.js';
+import Navbar from './Navbar.js';
 import base, { currentUser } from '../firebase.js';
 
 class App extends React.Component {
@@ -13,7 +14,6 @@ class App extends React.Component {
 		this.addGoal = this.addGoal.bind(this);
 		this.tgLink = this.tgLink.bind(this);
 		this.completeTask = this.completeTask.bind(this);
-		this.setUser = this.setUser.bind(this);
 
 		this.state = {
 			user: {},
@@ -78,13 +78,10 @@ class App extends React.Component {
 		this.setState({ tasks });
 	}
 
-	setUser() {
-
-	}
-
 	render() {
 		return (
 			<div className="nonzerodays">
+				<Navbar user={this.state.user} />
 				<AddTaskForm addTask={this.addTask} goals={this.state.goals} />
 				<AddGoalForm addGoal={this.addGoal} tasks={this.state.tasks} />
 				<ul className="tasks">

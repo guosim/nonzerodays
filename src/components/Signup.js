@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { createUser } from '../firebase.js';
 import './LoginSignup.css';
 
-
 class Signup extends React.Component {
 	constructor() {
 		super();

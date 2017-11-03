@@ -23,8 +23,8 @@ class AddTaskForm extends React.Component {
 			difficulty: this.difficulty.value || 3,
 			inGoals: this.state.goals || [],
 			repeat: this.state.repeat,
-			complete: "incomplete",
-			streak: 0
+			complete: [],
+			created: Date.now()			
 		}
 		this.props.addTask(task);
 		this.taskForm.reset();

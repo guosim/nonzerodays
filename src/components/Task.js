@@ -1,19 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactStars from 'react-stars';
+import { timeSince } from '../helpers.js';
 import './Task.css';
 
-//Name, Description/Details, Repeat (Daily, Weekly, Monthly, Time of Day, Mon/Tues), Difficulty, Stars (default=3), Streaks? Time created, time finished?
-//Goals?
-
 class Task extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			button_text: timeSince(this.props.details.complete[this.props.details.complete.length - 1]) || "Incomplete",
+			current_time: new Date()
+		};
+	}
+
+	componentDidMount() {
+		this.timer = setInterval(
+			() => this.setState({current_time: new Date()}),
+			1000
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
 	render() {
 		const { details, index } = this.props;
-		const complete = details.complete === "complete";
-		const buttonText = complete ? 'Done!' : 'Incomplete';
-
 		return (
 			<li className="task">
+				<i className="fa fa-pencil edit"></i>
 				<h3 className="task-name">
 					{details.name}
 				</h3>
@@ -30,7 +45,7 @@ class Task extends React.Component {
 				<p className="taskDescription">
 					{details.description}
 				</p>
-				<button onClick={() => this.props.completeTask(index)} disabled={complete}>{buttonText}</button>
+				<button onClick={() => this.props.completeTask(index)} className="complete-task" >{(this.state.current_time - details.complete[details.complete.length - 1]) || "Incomplete"}</button>
 			</li>
 		)
 	}

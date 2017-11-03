@@ -3,7 +3,7 @@ import './App.css';
 import AddTaskForm from './AddTaskForm.js';
 import AddGoalForm from './AddGoalForm.js';
 import Task from './Task.js';
-import Goal from './Goal.js';
+//import Goal from './Goal.js';
 import Navbar from './Navbar.js';
 import base, { currentUser } from '../firebase.js';
 
@@ -74,14 +74,14 @@ class App extends React.Component {
 
 	completeTask(key) {
 		const tasks = {...this.state.tasks};
-		tasks[key].complete = "complete";
+		tasks[key].complete.push(Date.now());
 		this.setState({ tasks });
 	}
 
 	render() {
 		return (
 			<div className="nonzerodays">
-				<Navbar user={this.state.user} />
+				<Navbar />
 				<AddTaskForm addTask={this.addTask} goals={this.state.goals} />
 				<AddGoalForm addGoal={this.addGoal} tasks={this.state.tasks} />
 				<ul className="tasks">

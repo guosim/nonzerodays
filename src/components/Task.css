@@ -3,7 +3,39 @@
 	border: none;
 	border-radius: 4px;
 	box-shadow: 0px 2px 4px 0px #000029;
+	display: flex;
+	flex-flow: column nowrap;
 	list-style-type: none;
 	margin: 10px;
 	padding: 12px 12px 12px 12px;
+	min-height: 140px;
+}
+
+.edit {
+	position: relative;
+	color: #555;
+	margin-left: auto;
+}
+
+.edit:hover {
+	color: #666;
+	cursor: pointer;
+}
+
+.complete-task {
+	height: 40px;
+	background-color: #3498db;
+	border: none;
+	border-radius: 20px;
+	color: #fff;
+	font-weight: 600;
+	line-height: 200%;
+	margin: 5px;
+	padding: 0 35px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.complete-task:hover {
+	background-color: #1b7fc2;
+	cursor: pointer;
 }

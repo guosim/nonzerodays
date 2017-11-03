@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { loginEmail } from '../firebase.js';
+import Navbar from './Navbar.js';
 import './LoginSignup.css';
 
 class Login extends React.Component {
@@ -17,15 +18,18 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="loginsignup-flex">
-				<form ref={(input) => {this.loginForm = input}} className="loginsignup" onSubmit={(e) => this.login(e)}>
-					<h3 className="loginsignup-header">Log In</h3>
-					<p className="errorMessage"></p>
-					<input ref={(input) => {this.email = input}} className="loginsignup-field" type="text" placeholder="username or email" required autoFocus={true} />
-					<input ref={(input) => {this.password = input}} className="loginsignup-field" type="password" placeholder="password" required />
-					<button type="submit" className="loginsignup-submit">Log In</button>
-					<Link to="/signup" className="loginsignup-link">Don't have an account? Sign up here!</Link>
-				</form>
+			<div className="nonzerodays">
+				<Navbar />
+				<div className="loginsignup-flex">
+					<form ref={(input) => {this.loginForm = input}} className="loginsignup" onSubmit={(e) => this.login(e)}>
+						<h3 className="loginsignup-header">Log In</h3>
+						<p className="errorMessage"></p>
+						<input ref={(input) => {this.email = input}} className="loginsignup-field" type="text" placeholder="username or email" required autoFocus={true} />
+						<input ref={(input) => {this.password = input}} className="loginsignup-field" type="password" placeholder="password" required />
+						<button type="submit" className="loginsignup-submit">Log In</button>
+						<Link to="/signup" className="loginsignup-link">Don't have an account? Sign up here!</Link>
+					</form>
+				</div>
 			</div>
 		)
 	}

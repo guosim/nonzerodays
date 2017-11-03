@@ -39,3 +39,8 @@
 	background-color: #1b7fc2;
 	cursor: pointer;
 }
+
+.complete-task:disabled {
+	background-color: #70B6E5;
+	cursor: default;
+}

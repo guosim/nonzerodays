@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactStars from 'react-stars';
-import { timeSince } from '../helpers.js';
+import { formatTimeAgo } from '../helpers.js';
 import './Task.css';
 
 class Task extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			button_text: timeSince(this.props.details.complete[this.props.details.complete.length - 1]) || "Incomplete",
 			current_time: new Date()
 		};
 	}
@@ -26,6 +25,9 @@ class Task extends React.Component {
 
 	render() {
 		const { details, index } = this.props;
+		const complete = formatTimeAgo(this.state.current_time - details.complete[details.complete.length - 1]) || "Incomplete";
+		const isComplete = complete === "Complete!";
+		const disabled = isComplete ? true : false;
 		return (
 			<li className="task">
 				<i className="fa fa-pencil edit"></i>
@@ -45,7 +47,7 @@ class Task extends React.Component {
 				<p className="taskDescription">
 					{details.description}
 				</p>
-				<button onClick={() => this.props.completeTask(index)} className="complete-task" >{(this.state.current_time - details.complete[details.complete.length - 1]) || "Incomplete"}</button>
+				<button onClick={() => this.props.completeTask(index)} className="complete-task" disabled={ disabled } >{ complete }</button>
 			</li>
 		)
 	}
